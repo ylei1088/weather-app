@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import LoadingSpinner from "./loading-spinner";
 import ErrorMessage from "./error-message";
 import WeatherInfo from "./weather-info";
+import "./page.css";
 
 function Page() {
   const [cityName, setCityName] = useState("");
@@ -34,7 +35,7 @@ function Page() {
     }
 
     const lowercaseName = cityName.toLocaleLowerCase();
-    const url = `${api.base}weather?q=${lowercaseName},&APPID=${api.key}`;
+    const url = `${api.base}weather?q=${lowercaseName}&units=metric,&APPID=${api.key}`;
     setErrorMessage(null);
     setWeatherData(null);
     setIsLoading(true);
@@ -58,30 +59,39 @@ function Page() {
 
   return (
     <main>
-      <h1>Weather App</h1>
-      <form onSubmit={onSearchFormSubmit}>
-        <label htmlFor="city-name">Enter City Name:</label>
+      <div className="container">
+        <form className="box" onSubmit={onSearchFormSubmit}>
+          <h1 className="title">Weather App</h1>
 
-        <input
-          id="city-name"
-          type="text"
-          className={`form-control`}
-          placeholder="Enter City"
-          value={cityName}
-          onChange={onCityNameChange}
-        />
-        <input
-          type="submit"
-          value={isLoading ? "Searching" : "Search"}
-          disabled={isLoading}
-        />
+          <label htmlFor="city-name">Enter City Name:</label>
 
-        <input type="button" value="Clear" onClick={onClearClick} />
-      </form>
+          <input
+            id="city-name"
+            type="text"
+            className="input"
+            placeholder="Enter City"
+            value={cityName}
+            onChange={onCityNameChange}
+          />
+          <input
+            className="search-box"
+            type="submit"
+            value={isLoading ? "Searching" : "Search"}
+            disabled={isLoading}
+          />
 
-      {isLoading && <LoadingSpinner size="50px" />}
-      {errorMessage && <ErrorMessage>{errorMessage}</ErrorMessage>}
-      {weatherData && <WeatherInfo data={weatherData} />}
+          <input
+            className="clear"
+            type="button"
+            value="Clear"
+            onClick={onClearClick}
+          />
+        </form>
+
+        {isLoading && <LoadingSpinner size="50px" />}
+        {errorMessage && <ErrorMessage>{errorMessage}</ErrorMessage>}
+        {weatherData && <WeatherInfo data={weatherData} />}
+      </div>
     </main>
   );
 }
