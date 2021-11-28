@@ -3,6 +3,7 @@ import LoadingSpinner from "./loading-spinner";
 import ErrorMessage from "./error-message";
 import WeatherInfo from "./weather-info";
 import "./page.css";
+require("dotenv").config();
 
 function Page() {
   const [cityName, setCityName] = useState("");
@@ -11,7 +12,6 @@ function Page() {
   const [errorMessage, setErrorMessage] = useState(null);
 
   const api = {
-    key: "9d4bc884118c415fc015ad23d6dec881",
     base: "http://api.openweathermap.org/data/2.5/",
   };
 
@@ -35,7 +35,7 @@ function Page() {
     }
 
     const lowercaseName = cityName.toLocaleLowerCase();
-    const url = `${api.base}weather?q=${lowercaseName}&units=metric,&APPID=${api.key}`;
+    const url = `${api.base}weather?q=${lowercaseName}&units=imperial,&APPID=${process.env.REACT_APP_API_KEY}`;
     setErrorMessage(null);
     setWeatherData(null);
     setIsLoading(true);
