@@ -23,7 +23,7 @@
   border-radius: var(--main-border-radius);
   background-color: var(--bg-color--card);
   color: var(--main-text-color);
-  width: 85%;
+  width: 100%;
   max-width: 675px;
   min-height: 300px;
 }

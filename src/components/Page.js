@@ -12,7 +12,7 @@ function Page() {
   const [errorMessage, setErrorMessage] = useState(null);
 
   const api = {
-    base: "http://api.openweathermap.org/data/2.5/",
+    base: "https://api.openweathermap.org/data/2.5/",
   };
 
   const onCityNameChange = (e) => {
