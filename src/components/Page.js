@@ -35,7 +35,7 @@ function Page() {
     }
 
     const lowercaseName = cityName.toLocaleLowerCase();
-    const url = `${api.base}weather?q=${lowercaseName}&units=imperial,&APPID=${process.env.REACT_APP_API_KEY}`;
+    const url = `${api.base}weather?q=${lowercaseName}&units=imperial,&APPID=9d4bc884118c415fc015ad23d6dec881`;
     setErrorMessage(null);
     setWeatherData(null);
     setIsLoading(true);
