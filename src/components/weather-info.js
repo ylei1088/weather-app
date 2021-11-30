@@ -15,8 +15,13 @@ function WeatherInfo(props) {
       <div className="weather-box">
         {" "}
         <h3>Current Weather: {name}</h3>
-        <img className="weather-icon" src={iconurl} alt="" />
-        <h1>{Math.floor(data.main.temp - 273) + 32}°F</h1>
+        
+        <div className="WeatherContainer">
+          <h1>{Math.floor(data.main.temp - 273) + 32}°F </h1>
+          {`  |  ${data?.weather[0].description}`}
+
+          <img className="weather-icon" src={iconurl} alt="" />
+        </div>
         <p>Feels Like: {Math.floor(main.feels_like - 273) + 32}°F</p>
         <p>
           Min: {Math.round(main.temp_min - 273) + 32}˚F / Max:{" "}

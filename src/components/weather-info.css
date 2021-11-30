@@ -6,6 +6,15 @@
   align-items: center;
 }
 
+.WeatherContainer {
+  display: flex;
+  width: 50%;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
 .weather-box {
   display: flex;
   padding: 25px;
@@ -29,6 +38,13 @@
   text-align: center;
 }
 
+.weather-box h1 {
+  margin: 15px auto;
+  text-transform: capitalize;
+  font-size: 28px;
+  font-weight: bold;
+}
+
 .weather-icon {
-  width: 50px;
+  width: 70px;
 }
