@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import LoadingSpinner from "./loading-spinner";
-import ErrorMessage from "./error-message";
-import WeatherInfo from "./weather-info";
+import LoadingSpinner from "./Loading-spinner";
+import ErrorMessage from "./Error-message";
+import WeatherInfo from "./Weather-info";
 import "./page.css";
 require("dotenv").config();
 

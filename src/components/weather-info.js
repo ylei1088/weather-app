@@ -15,7 +15,6 @@ function WeatherInfo(props) {
       <div className="weather-box">
         {" "}
         <h3>Current Weather: {name}</h3>
-        
         <div className="WeatherContainer">
           <h1>{Math.floor(data.main.temp - 273) + 32}°F </h1>
           {`  |  ${data?.weather[0].description}`}
