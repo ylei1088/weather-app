@@ -1,9 +1,6 @@
 import React from "react";
 import "./weather-info.css";
 import moment from "moment";
-import Card from "@material-ui/core/Card";
-import CardContent from "@material-ui/core/CardContent";
-import Typography from "@material-ui/core/Typography";
 
 function WeatherInfo(props) {
   const data = props.data;

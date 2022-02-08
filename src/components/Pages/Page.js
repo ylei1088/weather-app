@@ -4,7 +4,7 @@ import ErrorMessage from "../Common/Error-message";
 import WeatherInfo from "../Weather/Weather-info";
 import "./page.css";
 import SearchIcon from "@mui/icons-material/Search";
-import { InputLabel, TextField } from "@mui/material";
+import { TextField } from "@mui/material";
 import Button from "@mui/material/Button";
 
 require("dotenv").config();
@@ -71,8 +71,6 @@ function Page() {
             <TextField
               id="city-name"
               type="text"
-              // className="input"
-              // placeholder="Enter City"
               value={cityName}
               onChange={onCityNameChange}
               label="Enter City"
@@ -81,7 +79,6 @@ function Page() {
           </div>
           <div>
             <Button
-              // className="search-box"
               type="submit"
               value={isLoading ? "Searching" : "Search"}
               disabled={isLoading}
