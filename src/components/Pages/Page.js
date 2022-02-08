@@ -3,6 +3,10 @@ import LoadingSpinner from "../Common/Loading-spinner";
 import ErrorMessage from "../Common/Error-message";
 import WeatherInfo from "../Weather/Weather-info";
 import "./page.css";
+import SearchIcon from "@mui/icons-material/Search";
+import { InputLabel, TextField } from "@mui/material";
+import Button from "@mui/material/Button";
+
 require("dotenv").config();
 
 function Page() {
@@ -62,32 +66,42 @@ function Page() {
       <div className="container">
         <form className="box" onSubmit={onSearchFormSubmit}>
           <h1 className="title">Weather App</h1>
-
-          <label htmlFor="city-name">Enter City Name:</label>
-
-          <input
-            id="city-name"
-            type="text"
-            className="input"
-            placeholder="Enter City"
-            value={cityName}
-            onChange={onCityNameChange}
-          />
-          <input
-            className="search-box"
-            type="submit"
-            value={isLoading ? "Searching" : "Search"}
-            disabled={isLoading}
-          />
-
-          <input
-            className="clear"
-            type="button"
-            value="Clear"
-            onClick={onClearClick}
-          />
+          <p>Search your local weather</p>
+          <div>
+            <TextField
+              id="city-name"
+              type="text"
+              // className="input"
+              // placeholder="Enter City"
+              value={cityName}
+              onChange={onCityNameChange}
+              label="Enter City"
+              variant="filled"
+            />
+          </div>
+          <div>
+            <Button
+              // className="search-box"
+              type="submit"
+              value={isLoading ? "Searching" : "Search"}
+              disabled={isLoading}
+              variant="contained"
+              startIcon={<SearchIcon />}
+            >
+              Search
+            </Button>
+          </div>
+          <div>
+            <Button
+              className="clear"
+              type="button"
+              value="Clear"
+              onClick={onClearClick}
+            >
+              Clear
+            </Button>
+          </div>
         </form>
-
         {isLoading && <LoadingSpinner size="50px" />}
         {errorMessage && <ErrorMessage>{errorMessage}</ErrorMessage>}
         {weatherData && <WeatherInfo data={weatherData} />}
